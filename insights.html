@@ -348,7 +348,34 @@
             font-size: 16px;
             color: var(--grey-medium);
             max-width: 400px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
+        }
+
+        .subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(69, 196, 192, 0.3);
+        }
+
+        .subscribe-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
         }
 
         /* Footer */
@@ -507,13 +534,17 @@
     <!-- Posts Section -->
     <section class="posts-section">
         <div class="container">
-            <!-- Empty State -->
+            <!-- Empty State with Newsletter -->
             <div class="empty-state animate-on-scroll">
                 <div class="empty-state-icon">
                     <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 </div>
                 <h3>Coming Soon</h3>
-                <p>We're preparing insightful content for you. Check back soon for our latest perspectives.</p>
+                <p>We're preparing insightful content for you. Subscribe to be notified when we publish new perspectives.</p>
+                <a href="YOUR_GOOGLE_FORM_URL" target="_blank" rel="noopener" class="subscribe-btn">
+                    Subscribe for Updates
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
             </div>
 
             <!-- Posts Grid - Uncomment when posts are added
