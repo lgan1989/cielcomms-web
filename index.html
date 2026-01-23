@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciel & Co. Communications - Strategic Communications Excellence</title>
+    <meta name="description" content="Strategic communications counsel for knowledge-intensive institutions. We build communication strategies that reflect who you are and where you want to go.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --tiffany-blue: #45C4C0;
+            --tiffany-dark: #3aa8a4;
+            --tiffany-light: #e8f7f6;
+            --tiffany-ultra-light: #f5fbfb;
+            --white: #ffffff;
+            --grey-dark: #1a1a1a;
+            --grey-medium: #6b7280;
+            --grey-light: #f8f9fa;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--grey-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+            padding: 14px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--tiffany-blue);
+            font-size: 32px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--grey-dark);
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--tiffany-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--tiffany-blue);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button::after {
+            display: none !important;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(69, 196, 192, 0.3);
+            color: var(--white) !important;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--grey-dark);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100%;
+            height: 150%;
+            background: radial-gradient(circle at center, var(--tiffany-light) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--tiffany-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            animation: slideIn 0.8s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .hero-badge span {
+            width: 8px;
+            height: 8px;
+            background: var(--tiffany-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .hero-badge p {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--tiffany-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            letter-spacing: 6px;
+            color: var(--grey-medium);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            animation: slideIn 0.8s ease 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 84px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            animation: slideIn 0.8s ease both;
+        }
+
+        .hero h1 .accent {
+            color: var(--tiffany-blue);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--grey-medium);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            animation: slideIn 0.8s ease 0.4s both;
+        }
+
+        .hero-slogan {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            animation: slideIn 0.8s ease 0.6s both;
+        }
+
+        .slogan-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slogan-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--tiffany-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .slogan-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--tiffany-blue);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .slogan-text {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--grey-dark);
+            text-transform: uppercase;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            animation: slideIn 0.8s ease 0.8s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(69, 196, 192, 0.3);
+        }
+
+        .btn-primary svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .btn-secondary {
+            color: var(--grey-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--tiffany-blue);
+        }
+
+        .btn-secondary svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--tiffany-light);
+            color: var(--tiffany-dark);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 48px);
+            color: var(--grey-dark);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--grey-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--grey-light);
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .about-card {
+            background: var(--white);
+            padding: 48px 40px;
+            border-radius: var(--border-radius);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(69, 196, 192, 0.1);
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--tiffany-blue), var(--tiffany-dark));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--tiffany-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .about-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--tiffany-blue);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .about-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--grey-dark);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .about-card p {
+            font-size: 16px;
+            color: var(--grey-medium);
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--grey-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, var(--tiffany-light) 0%, transparent 100%);
+            transition: top 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--tiffany-blue);
+        }
+
+        .service-card:hover::before {
+            top: 0;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--grey-dark);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--grey-medium);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Founder Section */
+        .founder {
+            background: linear-gradient(180deg, var(--tiffany-ultra-light) 0%, var(--white) 100%);
+        }
+
+        .founder-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .founder-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+
+        .founder-avatar {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, var(--tiffany-blue) 0%, var(--tiffany-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+
+        .founder-avatar::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            background: linear-gradient(135deg, var(--tiffany-light) 0%, transparent 100%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .founder-avatar span {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .founder-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--grey-dark);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .founder-role {
+            font-size: 14px;
+            color: var(--tiffany-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .founder-social {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--grey-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--tiffany-blue);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--grey-medium);
+            transition: fill 0.3s ease;
+        }
+
+        .social-link:hover svg {
+            fill: var(--white);
+        }
+
+        .founder-bio {
+            padding-top: 20px;
+        }
+
+        .bio-section {
+            margin-bottom: 32px;
+        }
+
+        .bio-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--grey-dark);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bio-section p {
+            font-size: 16px;
+            color: var(--grey-medium);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .bio-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .highlight-item {
+            padding: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 3px solid var(--tiffany-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-item h4 {
+            font-size: 14px;
+            color: var(--tiffany-dark);
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-item p {
+            font-size: 15px;
+            color: var(--grey-dark);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -25%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(69, 196, 192, 0.1) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .contact-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-description {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+            border-color: var(--tiffany-blue);
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(69, 196, 192, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--tiffany-blue);
+            transform: rotate(10deg);
+        }
+
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--tiffany-blue);
+            fill: none;
+            stroke-width: 2;
+            transition: stroke 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon svg {
+            stroke: var(--white);
+        }
+
+        .contact-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: var(--tiffany-blue);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            font-size: 17px;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--tiffany-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f0f;
+            padding: 50px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--tiffany-blue);
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--grey-medium);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--tiffany-blue);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--grey-medium);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: var(--tiffany-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: none;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background: var(--tiffany-dark);
+            transform: translateY(-3px);
+        }
+
+        .scroll-top svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+                z-index: 1001;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .hero-container,
+            .container {
+                padding: 0 20px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-slogan {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                justify-content: center;
+            }
+
+            .founder-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .founder-card {
+                position: static;
+            }
+
+            .bio-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        /* Intersection Observer Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Ciel&Co.</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#founder">Founder</a></li>
+                <li><a href="#contact" class="cta-button">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Ciel<span class="accent">&</span>Co.</h1>
+                <p class="hero-tagline">Communications</p>
+                <div class="hero-slogan">
+                    <div class="slogan-item">
+                        <div class="slogan-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <span class="slogan-text">Innovative</span>
+                    </div>
+                    <div class="slogan-item">
+                        <div class="slogan-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span class="slogan-text">High-Quality</span>
+                    </div>
+                    <div class="slogan-item">
+                        <div class="slogan-icon">
+                            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <span class="slogan-text">Competitive</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">
+                        Get in Touch
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        Our Services
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-badge">Who We Are</span>
+                <h2 class="section-title">About Us</h2>
+                <p class="section-description">At Ciel & Co. Communications, we don't offer one-size-fits-all solutions—we build communication strategies that reflect who you are and where you want to go.</p>
+            </div>
+            
+            <div class="about-cards">
+                <div class="about-card animate-on-scroll">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <h3>Deep Sector Understanding</h3>
+                    <p>We speak the language of finance and investment. Our insight-driven approach ensures strategies are grounded in your business reality, not just generic PR tactics.</p>
+                </div>
+                <div class="about-card animate-on-scroll">
+                    <div class="about-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Dedicated to Your Results</h3>
+                    <p>We serve as your strategic partner, dedicated to helping you strengthen reputation, deepen stakeholder engagement, and unlock long-term value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-badge">What We Do</span>
+                <h2 class="section-title">Our Services</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Strategic Communications Advisory</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5"/></svg>
+                    </div>
+                    <h3>Media Relations</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    </div>
+                    <h3>Investor Relations & Financial Communications</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                    </div>
+                    <h3>Corporate Messaging & Storytelling</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <h3>Content Development</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Reputation & Issues Management</h3>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3>Event Management</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder" id="founder">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-badge">Leadership</span>
+                <h2 class="section-title">Meet Our Founder</h2>
+            </div>
+            
+            <div class="founder-wrapper">
+                <div class="founder-card animate-on-scroll">
+                    <div class="founder-avatar">
+                        <span>R</span>
+                    </div>
+                    <h3 class="founder-name">Ran Mo</h3>
+                    <p class="founder-role">Founder & Advisor</p>
+                    <div class="founder-social">
+                        <a href="mailto:ran.mo@cielcomms.com" class="social-link" aria-label="Email">
+                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                        </a>
+                        <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="founder-bio">
+                    <div class="bio-section animate-on-scroll">
+                        <p>Ran is a seasoned consultant specializing in strategic communications, media relations and investor relations. Throughout her career, she has worked closely with senior stakeholders, providing trusted counsel to start-ups, large corporations and listed companies. She has supported more than 50 firms across different industries during her tenure at leading global PR consultancies.</p>
+                        <p>Ran started Ciel & Co. Communications in 2025 with a clear focus of providing high-quality, results-driven communications counsel that helps knowledge-intensive companies achieve their business objectives.</p>
+                        <p>Before transitioning into communications, Ran worked as an analyst covering fintech, cryptocurrency, sustainable investing and power markets. She also contributed to the Digital Strategy team at KGI, a leading Taiwanese investment bank.</p>
+                        <p>Ran holds a Bachelor's degree in Accounting and Finance from the University of Hong Kong, and a Master's degree in Corporate Financial Management from SKEMA Business School in Paris, France.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-wrapper">
+            <div class="section-header animate-on-scroll">
+                <span class="section-badge">Contact</span>
+                <h2 class="section-title">Get in touch.</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <p class="contact-label">Email</p>
+                    <p class="contact-info"><a href="mailto:ran.mo@cielcomms.com">ran.mo@cielcomms.com</a></p>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    </div>
+                    <p class="contact-label">Phone</p>
+                    <p class="contact-info"><a href="tel:+85297108933">+852 9710 8933</a></p>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <p class="contact-label">Address</p>
+                    <p class="contact-info">Level 16, Nexxus Building<br>41 Connaught Road, Central<br>Hong Kong</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-logo">Ciel&Co.</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#founder">Founder</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="footer-copyright">&copy; 2025 Ciel & Co. Communications. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
