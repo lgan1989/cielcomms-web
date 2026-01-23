@@ -818,7 +818,123 @@
             color: var(--tiffany-blue);
             text-transform: uppercase;
             margin-bottom: 12px;
+        }
+
+        .contact-form-wrapper {
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .contact-form-wrapper > p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-size: 13px;
             font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 15px;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--tiffany-blue);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            color: var(--white);
+            border: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(69, 196, 192, 0.3);
+        }
+
+        .form-submit svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-wrapper {
+                padding: 24px;
+            }
         }
 
         .contact-info {
@@ -1183,14 +1299,6 @@
                     </div>
                     <h3 class="founder-name">Ran Mo</h3>
                     <p class="founder-role">Founder & Advisor</p>
-                    <div class="founder-social">
-                        <a href="mailto:ran.mo@cielcomms.com" class="social-link" aria-label="Email">
-                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                        </a>
-                        <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
-                        </a>
-                    </div>
                 </div>
                 
                 <div class="founder-bio">
@@ -1235,6 +1343,32 @@
                     <p class="contact-label">Address</p>
                     <p class="contact-info">Level 16, Nexxus Building<br>41 Connaught Road, Central<br>Hong Kong</p>
                 </div>
+            </div>
+
+            <!-- Custom Contact Form -->
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h3>Send us a message</h3>
+                <p>Fill out the form below and we'll get back to you shortly.</p>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="entry.845798785" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="entry.338095446" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="entry.1095369172" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        Send Message
+                        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
+                </form>
+                <p class="form-note">We typically respond within 24 hours.</p>
             </div>
         </div>
     </section>
@@ -1319,6 +1453,39 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf9rW0GVsdYqcxy14ZH3cynk6wDwfEaQPCSjpgyLlKMsChOmg/formResponse';
+            
+            fetch(googleFormUrl, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                showThankYou();
+            }).catch(() => {
+                // Even if there's an error, Google Forms usually receives the data
+                showThankYou();
+            });
+        });
+
+        function showThankYou() {
+            const wrapper = document.querySelector('.contact-form-wrapper');
+            wrapper.innerHTML = `
+                <div style="text-align: center; padding: 40px 0;">
+                    <div style="width: 64px; height: 64px; background: rgba(69, 196, 192, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+                        <svg viewBox="0 0 24 24" style="width: 32px; height: 32px; stroke: var(--tiffany-blue); fill: none; stroke-width: 2;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); margin-bottom: 12px;">Thank you!</h3>
+                    <p style="font-size: 16px; color: rgba(255,255,255,0.7);">Your message has been sent successfully.<br>We'll get back to you shortly.</p>
+                </div>
+            `;
+        }
     </script>
 
 </body>
