@@ -351,31 +351,106 @@
             margin: 0 auto 24px;
         }
 
+        /* Newsletter Form */
+        .newsletter-form {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form:focus-within {
+            box-shadow: 0 8px 30px rgba(69, 196, 192, 0.15), 0 0 0 2px var(--tiffany-blue);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 14px 24px;
+            font-size: 15px;
+            color: var(--grey-dark);
+            font-family: 'Inter', sans-serif;
+            min-width: 0;
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--grey-medium);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+        }
+
         .subscribe-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 8px;
             background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
             color: var(--white);
             padding: 14px 28px;
-            border-radius: 30px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
         }
 
         .subscribe-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(69, 196, 192, 0.3);
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(69, 196, 192, 0.4);
+        }
+
+        .subscribe-btn:active {
+            transform: scale(0.98);
         }
 
         .subscribe-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             stroke: var(--white);
             fill: none;
-            stroke-width: 2;
+            stroke-width: 2.5;
+            transition: transform 0.3s ease;
+        }
+
+        .subscribe-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: var(--grey-medium);
+            margin-top: 16px;
+        }
+
+        @media (max-width: 520px) {
+            .newsletter-form {
+                flex-direction: column;
+                border-radius: 16px;
+                padding: 8px;
+            }
+            
+            .newsletter-form input {
+                text-align: center;
+                padding: 16px;
+            }
+            
+            .subscribe-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+            }
         }
 
         /* Footer */
@@ -535,16 +610,20 @@
     <section class="posts-section">
         <div class="container">
             <!-- Empty State with Newsletter -->
-            <div class="empty-state animate-on-scroll">
+            <div class="empty-state animate-on-scroll" id="newsletterSection">
                 <div class="empty-state-icon">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <h3>Coming Soon</h3>
-                <p>We're preparing insightful content for you. Subscribe to be notified when we publish new perspectives.</p>
-                <a href="YOUR_GOOGLE_FORM_URL" target="_blank" rel="noopener" class="subscribe-btn">
-                    Subscribe for Updates
-                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
+                <h3>Stay Updated</h3>
+                <p>Subscribe to be notified when we publish new insights and perspectives.</p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="subscriberEmail" name="entry.1095917482" placeholder="Enter your email" required>
+                    <button type="submit" class="subscribe-btn">
+                        Subscribe
+                        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                </form>
             </div>
 
             <!-- Posts Grid - Uncomment when posts are added
@@ -631,6 +710,36 @@
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
+
+        // Newsletter form submission
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(newsletterForm);
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSed4hHA7SL3VQ6pqdEbwZrwzsUgOnsV0GTZg4hMXvApKt5_Ng/formResponse';
+            
+            fetch(googleFormUrl, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                showSubscribeSuccess();
+            }).catch(() => {
+                showSubscribeSuccess();
+            });
+        });
+
+        function showSubscribeSuccess() {
+            const section = document.getElementById('newsletterSection');
+            section.innerHTML = `
+                <div class="empty-state-icon" style="background: var(--tiffany-light);">
+                    <svg viewBox="0 0 24 24" style="stroke: var(--tiffany-blue);"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3>You're subscribed!</h3>
+                <p>Thank you for subscribing. We'll notify you when new insights are published.</p>
+            `;
+        }
     </script>
 
 </body>
