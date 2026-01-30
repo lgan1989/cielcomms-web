@@ -315,6 +315,119 @@
             animation: slideIn 0.8s ease 0.8s both;
         }
 
+        /* Hero Newsletter Form */
+        .hero-newsletter {
+            margin-top: 40px;
+            animation: slideIn 0.8s ease 1s both;
+        }
+
+        .hero-newsletter-label {
+            font-size: 14px;
+            color: var(--grey-medium);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .hero-newsletter-form {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            max-width: 480px;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 6px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+
+        .hero-newsletter-form:focus-within {
+            box-shadow: 0 8px 30px rgba(69, 196, 192, 0.15), 0 0 0 2px var(--tiffany-blue);
+        }
+
+        .hero-newsletter-form input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 14px 24px;
+            font-size: 15px;
+            color: var(--grey-dark);
+            font-family: 'Inter', sans-serif;
+            min-width: 0;
+        }
+
+        .hero-newsletter-form input::placeholder {
+            color: var(--grey-medium);
+        }
+
+        .hero-newsletter-form input:focus {
+            outline: none;
+        }
+
+        .hero-subscribe-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .hero-subscribe-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(69, 196, 192, 0.4);
+        }
+
+        .hero-subscribe-btn:active {
+            transform: scale(0.98);
+        }
+
+        .hero-subscribe-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2.5;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-subscribe-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        .hero-form-note {
+            font-size: 12px;
+            color: var(--grey-medium);
+            margin-top: 12px;
+        }
+
+        @media (max-width: 520px) {
+            .hero-newsletter-form {
+                flex-direction: column;
+                border-radius: 16px;
+                padding: 8px;
+            }
+            
+            .hero-newsletter-form input {
+                text-align: center;
+                padding: 16px;
+            }
+            
+            .hero-subscribe-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 24px;
+            }
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--tiffany-blue), var(--tiffany-dark));
             color: var(--white);
@@ -1174,10 +1287,18 @@
                         Get in Touch
                         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
-                    <a href="#services" class="btn-secondary">
-                        Our Services
-                        <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-                    </a>
+                </div>
+                
+                <!-- Newsletter Subscribe Form -->
+                <div class="hero-newsletter" id="heroNewsletterSection">
+                    <span class="hero-newsletter-label">Subscribe to Ciel Insights, your monthly digest of APAC Communications Intelligence.</span>
+                    <form class="hero-newsletter-form" id="heroNewsletterForm">
+                        <input type="email" id="heroSubscriberEmail" name="entry.1045781291" placeholder="Enter your email" required>
+                        <button type="submit" class="hero-subscribe-btn">
+                            Subscribe
+                            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1279,10 +1400,10 @@
                 
                 <div class="founder-bio">
                     <div class="bio-section animate-on-scroll">
-                        <p>Ran is a seasoned consultant specializing in strategic communications, media relations and investor relations. Throughout her career, she has worked closely with senior stakeholders, providing trusted counsel to start-ups, large corporations and listed companies. She has supported more than 50 firms across different industries during her tenure at leading global PR consultancies.</p>
-                        <p>Ran started Ciel & Co. Communications in 2025 with a clear focus of providing high-quality, results-driven communications counsel that helps knowledge-intensive companies achieve their business objectives.</p>
-                        <p>Before transitioning into communications, Ran worked as an analyst covering fintech, cryptocurrency, sustainable investing and power markets. She also contributed to the Digital Strategy team at KGI, a leading Taiwanese investment bank.</p>
-                        <p>Ran holds a Bachelor's degree in Accounting and Finance from the University of Hong Kong, and a Master's degree in Corporate Financial Management from SKEMA Business School in Paris, France.</p>
+                        <p>Ran is a seasoned consultant with over a decade of experience specializing in strategic communications, media relations, and investor relations. Throughout her career, she has worked closely with senior stakeholders, providing trusted counsel to start-ups, large corporations and listed companies. She has supported a wide portfolio of firms across multiple sectors during her tenure at leading PR consultancies.</p>
+                        <p>Ran started Ciel&Co. Communications in 2025 with a clear focus of providing high-quality, results-driven communications counsel that helps knowledge-intensive companies (financial service firms, asset managers, consulting firms etc.) achieve their business objectives.</p>
+                        <p>Before transitioning into communications, Ran worked as an analyst covering fintech, cryptocurrency, sustainable investing and power markets. She also contributed to the Digital Strategy team at KGI, a leading Taiwanese investment bank. </p>
+                        <p>Ran holds a Bachelor’s degree in Accounting and Finance from the University of Hong Kong, and a Master’s degree in Corporate Financial Management from SKEMA Business School in Paris, France. </p>
                     </div>
                 </div>
             </div>
@@ -1458,6 +1579,35 @@
                     </div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); margin-bottom: 12px;">Thank you!</h3>
                     <p style="font-size: 16px; color: rgba(255,255,255,0.7);">Your message has been sent successfully.<br>We'll get back to you shortly.</p>
+                </div>
+            `;
+        }
+
+        // Hero Newsletter form submission
+        const heroNewsletterForm = document.getElementById('heroNewsletterForm');
+        heroNewsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(heroNewsletterForm);
+            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScLsF29eAeqVBkNsZ87J6klGmvvCfrHBN5jiU6MUG0WxBW_4g/formResponse';
+            
+            fetch(googleFormUrl, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            }).then(() => {
+                showHeroSubscribeSuccess();
+            }).catch(() => {
+                showHeroSubscribeSuccess();
+            });
+        });
+
+        function showHeroSubscribeSuccess() {
+            const section = document.getElementById('heroNewsletterSection');
+            section.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px; color: var(--tiffany-blue);">
+                    <svg viewBox="0 0 24 24" style="width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span style="font-weight: 600;">You're subscribed! We'll keep you updated.</span>
                 </div>
             `;
         }
